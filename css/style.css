@@ -5,4 +5,24 @@ html, body{
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
+	font-family: sans-serif;
+}
+
+.timer{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	font-size: 20px;
+}
+.hp{
+	position: absolute;
+	left: 10px;
+	top: 40px;
+	font-size: 20px;
+}
+.banans{
+	position: absolute;
+	left: 10px;
+	top: 70px;
+	font-size: 20px;
 }

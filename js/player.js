@@ -14,6 +14,7 @@ function initSprites(folder, spritesCount, arr) {
 
 initSprites('passive', 2, sprites.passive);
 initSprites('rightRun', 9, sprites.rightRun);
+/* <- Init Sprites */
 
 
 let player = {
@@ -35,6 +36,12 @@ let player = {
 		up: false
 	} 
 };
+
+
+// return PLayer HP 
+player.getHP = function () {
+	return this.hp;
+}
 
 // Key Listener
 player.controller.keyListener = function (event) {
@@ -64,6 +71,7 @@ player.move = function () {
 	}
 	if(this.controller.left){
 		this.x_velocity -= 0.5;
+
 	}
 	if(this.controller.right){
 		this.x_velocity += 0.5;
@@ -74,8 +82,8 @@ player.move = function () {
 	this.x += this.x_velocity;
 	this.y += this.y_velocity;
 
-	this.x_velocity *= 0.9; 
 	this.y_velocity *= 0.9; 		
+	this.x_velocity *= 0.9; 
 }
  
 //Limitations Move Player
@@ -91,11 +99,13 @@ player.limit = function () {
 	}
 }
 
+player.img.src = sprites.passive[0];
+
 // Draw Player
 player.draw = function() {
 	if (this.state === 'passive') {
 
 	}
-	ctx.fillRect(this.x, this.y, this.width, this.height);	
-	// ctx.drawImage(this.img, this.x, this.y, this.width, this.height);	
+	// ctx.fillRect(this.x, this.y, this.width, this.height);	
+	ctx.drawImage(this.img, this.x, this.y, this.width, this.height);	
 }
