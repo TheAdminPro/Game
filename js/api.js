@@ -23,3 +23,18 @@ const getRandomNumber = (min=0, max=window.innerWidth) =>{
 	 return Math.floor(Math.random() * (max - min)) + min;
 }
 
+// Draw Some Array
+const drawArray = (array) => {
+	array.forEach(arr => {
+		arr.draw();
+	});
+}
+
+// Viewport Some Array
+const viewportArray = (array, offset) => {
+	array.forEach(arr => {
+		arr.x += offset;
+	});	
+}
+
+

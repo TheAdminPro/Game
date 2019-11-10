@@ -7,22 +7,20 @@ html, body{
 	overflow: hidden;
 	font-family: sans-serif;
 }
-
-.timer{
+.name, .timer, .hp, .banans{
 	position: absolute;
-	left: 10px;
-	top: 10px;
 	font-size: 20px;
+	left: 10px;
+}
+.name{
+	top: 10px;
+}
+.timer{
+	top: 40px;
 }
 .hp{
-	position: absolute;
-	left: 10px;
-	top: 40px;
-	font-size: 20px;
+	top: 70px;
 }
 .banans{
-	position: absolute;
-	left: 10px;
-	top: 70px;
-	font-size: 20px;
+	top: 100px;
 }

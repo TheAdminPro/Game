@@ -7,13 +7,17 @@ let bg = {
 };
 bg.img.src = 'media/bg/bg.png';
 
+bg.viewport = function (offset) {
+	this.x += offset;
+}
+
 bg.draw = function () {
 	ctx.drawImage(this.img,
-	 							this.x++,
-	 							this.y,
-	 							this.width / 4,
-	 							this.height,
-	 							0, 0,
-	 							window.innerWidth,
-	 							window.innerHeight);	
+				this.x,
+				this.y,
+				this.width / 4,
+				this.height,
+				0, 0,
+				window.innerWidth,
+				window.innerHeight);	
 }
