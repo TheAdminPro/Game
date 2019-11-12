@@ -15,7 +15,7 @@ bg.draw = function () {
 	ctx.drawImage(this.img,
 				this.x,
 				this.y,
-				this.width / 4,
+				window.innerWidth,
 				this.height,
 				0, 0,
 				window.innerWidth,
