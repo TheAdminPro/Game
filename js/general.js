@@ -17,6 +17,7 @@ class General{
 		   	player.y + player.height > this.y &&
 		   	player.y < this.y + this.height ){
 				callback({platform: this, playerHP: player.hp});
+				return true; 
 		}
 	}
 }

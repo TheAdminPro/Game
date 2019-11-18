@@ -9,23 +9,28 @@ class Snake extends General{
 		this.maxLeft = this.x - 500;
 		this.maxRight = this.x + 500;
 		this.dir = getRandomNumber(0, 2) ? 1 : -1;
-		console.log(this.width / 2);
+		this.collided = false;
+		this.hit = false;
 	}
 	move(){
-		// this.x = this.x + this.width / 2;
-		// ctx.fillRect(this.x, this.y, 10, 10);
-		// ctx.fillRect(this.startPoint, this.y, 10, 10);
 		this.x += this.velocity * this.dir;
 
 		if (this.x <= this.maxLeft) this.dir = 1;
 		if (this.x >= this.maxRight) this.dir = -1;
-
+		this.encounter();
 	}
 	encounter(){
-		this.collision(player, function (payload) {
+		let res = this.collision(player, (payload) => {
 			// payload.playerHP -= 30;
-			player.hp -= 30;
-			// console.log(payload.playerHP);
-		});
+						if(!this.collided){
+							this.collided = true;
+							this.hit = true;
+							player.hp -= 30;
+							getInfo();
+						}
+					});
+		if (res === undefined) {
+			this.collided = false;
+		}
 	}
 }

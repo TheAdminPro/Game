@@ -2,7 +2,7 @@
 let nosPassive;
 let nosRun;
 let nosUp = 1;
-let hero = 'aladdin';
+let hero = 'jasmine';
 
 let path = 'media/sprites/';
 let extension = '.gif'; 
@@ -99,6 +99,7 @@ player.move = function () {
 			this.x_velocity = -0.1;
 			bg.viewport(-5);
 			viewportArray(platforms, 5);
+			viewportArray(banans, 5);
 			// viewportArray(snakes, 5);
 			for(snake of snakes) snake.x += 7;
 		}
@@ -113,6 +114,7 @@ player.move = function () {
 			this.x = window.innerWidth / 2 - this.width / 2;
 			bg.viewport(5);
 			viewportArray(platforms, -5);
+			viewportArray(banans, -5);
 			// viewportArray(snakes, -5);
 			for(snake of snakes) snake.x -= 7;
 		} 
@@ -146,6 +148,7 @@ player.limit = function () {
 		this.x_velocity = 0;
 	}
 	for(platform of platforms) platform.encounter(); 
+	for(banana of banans) banana.encounter(); 
 	// for(snake of snakes) snake.encounter(); 
 }
 

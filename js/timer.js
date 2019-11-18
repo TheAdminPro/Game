@@ -8,5 +8,4 @@ function getTime() {
 function tickTime(){
 	s++;
 	s > 59 ? (m++, s=0) : false;
-	player.hp--;
 }

@@ -1,5 +1,6 @@
 let ctx = createCanvas();
-let timer;
+let timer; 
+let time = 0;
 let pause = false;
 //Init platforms 
 let platforms = [];
@@ -10,6 +11,11 @@ for(let i = 0; i < 10; i++){
 let snakes = [];
 for(let i = 0; i < 5; i++){
 	snakes.push(new Snake(getRandomNumber(500, bg.img.width - 500)));
+}
+let banans = [];
+for (let i = 0; i < 2; i++) {
+	banans.push(new Banana());
+	banans[i].setPosition(platforms);
 }
 
 loop();
@@ -29,7 +35,6 @@ function mainTimer() {
 		timer = setInterval(() => {
 			tickTime();
 			getInfo();
-			for(snake of snakes) snake.encounter(); 
 		}, 1000);
 	}
 }
@@ -45,7 +50,31 @@ function update() {
 	player.limit();
 	drawArray(platforms);
 	drawArray(snakes);
+	drawArray(banans);
 	for(snake of snakes) snake.move(); 
+
+	let t = new Date().getTime();
+		if (time <= t) {
+
+			for (let snake of snakes) {
+				if (snake.collided === true && snake.hit !== true) {
+					player.hp -= 30;
+				} else {
+					snake.hit = false;
+				}
+			}
+
+
+			player.hp--;
+
+			if (player.hp < 0) {
+				player.hp = 0;
+				// die();
+			}
+
+			getInfo();
+			time = t + 1000;
+		}
 }
 
 

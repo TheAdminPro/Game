@@ -1,7 +1,5 @@
 // Get Elem
-const $ = elem => {
-	return document.getElementById(elem);
-}
+const $ = elem => document.getElementById(elem);
 
 // Create Canvas
 const createCanvas = () => {
@@ -13,15 +11,10 @@ const createCanvas = () => {
 }
 
 // Clear Canvas
-const clearCanvas = () => {
-	ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-};
-
+const clearCanvas = () => ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
 // Random Number
-const getRandomNumber = (min=0, max=window.innerWidth) =>{
-	 return Math.floor(Math.random() * (max - min)) + min;
-}
+const getRandomNumber = (min=0, max=window.innerWidth) => Math.floor(Math.random() * (max - min)) + min;
 
 // Draw Some Array
 const drawArray = (array) => {
